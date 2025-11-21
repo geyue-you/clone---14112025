@@ -7,10 +7,20 @@ def index():
     return(render_template("index.html"))
 
 @app.route("/main",methods=["GET","POST"])
-def main():
+def dbs_prediction():
     q = request.form.get("q")
     print(q)
-    return(render_template("main.html"))
+    return(render_template("dbs.html"))
+
+@app.route("/dbs",methods=["GET","POST"])
+def dbs():
+    return(render_template("dbs.html"))
+
+@app.route("/dbs_prediction",methods=["GET","POST"])
+def dbs_prediction():
+    q = float(request.form.get("q"))
+    print(q)
+    return(render_template("dbs.html"))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)
