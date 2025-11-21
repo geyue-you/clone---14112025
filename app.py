@@ -8,7 +8,7 @@ def index():
     return(render_template("index.html"))
 
 @app.route("/main",methods=["GET","POST"])
-def dbs_prediction():
+def main():
     q = request.form.get("q")
     print(q)
     return(render_template("dbs.html"))
