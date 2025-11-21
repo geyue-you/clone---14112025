@@ -1,4 +1,5 @@
 from flask import Flask,request,render_template
+import joblib
 
 app = Flask(__name__)
 
@@ -20,7 +21,7 @@ def dbs():
 def dbs_prediction():
     q = float(request.form.get("q"))
     print(q)
-    return(render_template("dbs.html"))
+    return(render_template("dbs_prediction.html", r=r))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)
