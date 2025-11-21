@@ -21,7 +21,9 @@ def dbs():
 def dbs_prediction():
     q = float(request.form.get("q"))
     print(q)
-    return(render_template("dbs_prediction.html", r=r))
+    model = joblib.load("dbs.pkl")
+    r = model.predict([[q]])
+    return(render_template("dbs_prediction.html", r=r[0][0]))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)
